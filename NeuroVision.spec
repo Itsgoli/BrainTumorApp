@@ -1,7 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_all
 
-datas = [('models/brain_tumor_pad_finetuned.keras', 'models')]
+datas = [('assets/app.ico', 'assets'), ('models/brain_tumor_pad_finetuned.keras', 'models')]
 binaries = []
 hiddenimports = []
 tmp_ret = collect_all('tensorflow')
@@ -41,6 +41,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['assets/app.ico'],
 )
 coll = COLLECT(
     exe,

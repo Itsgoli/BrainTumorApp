@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
-from PyQt6.QtGui import QPixmap
+from PyQt6.QtGui import QIcon, QPixmap
 from PyQt6.QtWidgets import (
     QApplication,
     QFileDialog,
@@ -367,6 +367,10 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+
+    icon_path = Path(__file__).resolve().parent / "assets" / "app.ico"
+    app.setWindowIcon(QIcon(str(icon_path)))
+
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
